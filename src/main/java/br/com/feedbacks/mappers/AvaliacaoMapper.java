@@ -2,18 +2,11 @@ package br.com.feedbacks.mappers;
 
 import br.com.feedbacks.dtos.AvaliacaoDTO;
 import br.com.feedbacks.entities.AvaliacaoEntity;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
-import java.util.Date;
+public interface AvaliacaoMapper {
 
-public class AvaliacaoMapper {
+    AvaliacaoEntity toEntity(AvaliacaoDTO dto);
 
-    private AvaliacaoMapper() {
-    }
-
-    public static AvaliacaoEntity toEntity(AvaliacaoDTO dto) {
-        return AvaliacaoEntity.builder().descricao(dto.descricao())
-                .nota(dto.nota())
-                .dataCriacao(new Date())
-                .build();
-    }
+    String toString(AvaliacaoDTO dto) throws JsonProcessingException;
 }
